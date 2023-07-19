@@ -125,61 +125,67 @@
       
       <div class="card m-2">
          <div class="card-header">
-            AJAX
+            	다양한 응답 생성
          </div>
          <div class="card-body">            
-            <a href="javascript:ajax1()" class="btn btn-info btn-sm">AJAX 요청(HTML 조각 얻기)</a>
-            <a href="javascript:ajax2()" class="btn btn-info btn-sm">AJAX 요청(JSON)</a>
-            <a href="javascript:ajax3()" class="btn btn-info btn-sm">AJAX 요청(JSON)</a>
-            <a href="javascript:ajax4()" class="btn btn-info btn-sm">AJAX 요청(JSON)</a>
+            <a href="javascript:ajax1()" class="btn btn-info btn-sm">AJAX 요청(HTML 조각 응답)</a>
+            <a href="javascript:ajax2()" class="btn btn-info btn-sm">AJAX 요청(JSON 응답)</a>
+            <a href="javascript:ajax3()" class="btn btn-info btn-sm">AJAX 요청(JSON 응답)</a>
+            <a href="javascript:ajax4()" class="btn btn-info btn-sm">AJAX 요청(JSON 응답)</a>
+            <a href="javascript:fileDownload()" class="btn btn-info btn-sm">파일 다운로드</a>
+            
             <div id="content" class="mt-2"></div>
             <script>
                function ajax1() {
-                  console.log("ajax1() 실행");
                   $.ajax({
-                     url:"ajax1"
-                  })
-                  .done((data) => {
-                     $("#content").html(data);
+                     url:"ajax1", //상대경로로 요청시 localhost~~~ 주욱 생략
+                     method:"get", //메소드가 없으면 get
+                     success: function(data) {
+                    	 $("#content").html(data);
+                     }
                   });
                }
-               
+           
                function ajax2() {
-                  console.log("ajax2() 실행");
                   $.ajax({
-                     url:"ajax2"
-                  })
-                  .done((data) => {
-                     $("#content").html(
-                        "<img src='${pageContext.request.contextPath}/resources/images/" + 
-                        data.fileName + "' width='200px'/>");
-                  });
-               }
+                     url:"ajax2",
+                     success: function(data){
+                    	 //(fileName: "photo1.jpg")
+	                     $("#content").html(
+	                        "<img src='${pageContext.request.contextPath}/resources/images/photo/" + 
+	                        data.fileName + "' width='200px'/>"
+                     );
+                   }                   
+                });
+              }
                
                function ajax3() {
-                  console.log("ajax3() 실행");
-                  $.ajax({
-                     url:"ajax3"
-                  })
-                  .done((data) => {
-                     $("#content").html(
-                        "<img src='${pageContext.request.contextPath}/resources/images/" + 
-                        data.fileName + "' width='200px'/>");
-                  });
-               }
+            	   $.ajax({
+                       url:"ajax3",
+                       success: function(data){
+                      	 //(fileName: "photo1.jpg")
+	                     $("#content").html(
+	                        "<img src='${pageContext.request.contextPath}/resources/images/photo/" + 
+	                        data.fileName + "' width='200px'/>"
+                       );
+                    }
+                });
+              }
                
+
                function ajax4() {
-                  console.log("ajax4() 실행");
-                  $.ajax({
-                     url:"ajax4"
-                  })
-                  .done((data) => {
-                     console.log(data);
-                     $("#content").html(
-                        "<img src='${pageContext.request.contextPath}/resources/images/" + 
-                        data.fileName + "' width='200px'/>");
-                  });
-               }
+            	   $.ajax({
+                       url:"ajax4",
+                       success: function(data){
+                      	 //(fileName: "photo1.jpg")
+	                     $("#content").html(
+	                        "<img src='${pageContext.request.contextPath}/resources/images/photo/" + 
+	                        data.fileName + "' width='200px'/>"
+                       );
+                    }
+                });
+              }
+               
             </script>
          </div>      
       </div>      
