@@ -29,10 +29,10 @@ public class HomeController {
 	public void method3() {
 		log.info("실행");
 	}
-		//http://localhost:8080/springwebapp/
-		@RequestMapping("/") //conroller에 requestMapping 을 작성하면 anootation에서 정보를 보관해서 controller 에 쏴준다.
+		//http://localhost:8080/springwebapp/ 요청을 하면 HomeController.index() 실행
+		@RequestMapping("/") //controller에 requestMapping 을 작성하면 anootation에서 정보를 보관해서 controller 에 쏴준다.
 		public String index() {
 			log.info("실행1");
-			return "index";
+			return "home";
 		}
 }
