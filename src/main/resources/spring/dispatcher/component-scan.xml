@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-	
-	<context:component-scan base-package="com.mycompany.springwebapp"/>  <!-- @Controller를 찾아서 실행함 -->
-
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"
+   xsi:schemaLocation="
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      
+      http://www.springframework.org/schema/context 
+      http://www.springframework.org/schema/context/spring-context.xsd
+      
+      http://www.springframework.org/schema/mvc 
+      http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+   
+   <!-- [객체 생성 관련 어노테이션 인식]
+   		@Controller, @Service, @Repository, @Component 이 적용된 클래스를 찾고,
+   		Ioc Controller(WebApplicationContext) 애서 객체를 생성시킴 
+   	
+   	[생성자 호출 후(객체가 생성된 후), 객체가 소멸되기 전에 실행할 메소드와 관련된 어노테이션 인식]
+   	@PostConstructor: 생성자 호출 후에 실행할 메소드, 
+   	@PreDestory: 객체가 소멸되기 전에 실행할 메소드
+   	
+   	[의존 객체 주입(Dependency injection: DI) 와 관련된 어노테이션 인식]
+   	@Resource, @Autowired, @Inject, @value	
+   	
+   	[요청 경로 매핑과 관련된 어노테이션 인식] 요청 처리는 root 쪽에는 들어가면 안된다 dispatcherServlet 설정에만 들어가야 한다.
+   	@RequestMapping 
+   	-->
+   		
+   		
+   <context:component-scan base-package="com.mycompany.springwebapp">  <!-- @Controller를 찾아서 실행함 -->
+	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+   </context:component-scan>
+   
+   <mvc:annotation-driven>
+   
+   <!-- 
+   [요청 정보를 얻거나, 처리를 하기위한 어노테이션을 인식]
+   @RequestParam, @GetMapping, @PostMapping, @ModelAttribute
+    -->
+   </mvc:annotation-driven>
 </beans>

@@ -11,8 +11,6 @@
 		<config>src/main/resources/spring/root/component-scan.xml</config>
 	</configs>
 	<autoconfigs>
-		<config>src/main/resources/spring/dispatcher/view-resolver.xml</config>
-		<config>src/main/resources/spring/dispatcher/component-scan.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
