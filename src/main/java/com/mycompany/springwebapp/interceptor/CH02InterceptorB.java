@@ -19,15 +19,15 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponse respons
 	
 	//요청 처리 메소드가 @Auth가 붙어있는지 확인
 	HandlerMethod handlerMethod = (HandlerMethod) handler; 
-	Auth auth = handlerMethod.getMethodAnnotation(Auth.class); //auth 가 안 붙어 있으면 null을 반환		
+	Auth auth = handlerMethod.getMethodAnnotation(Auth.class); //auth의 클래스가 뭔지 알아내는 방법(user 인지 admin인지 들어가 있는지 없는지)
 	if(auth == null) {
 		//@Auth가 안 붙어 있을 경우
-		return true;
+		return true; //home으로
 	}else {
 		//@Auth 가 붙어 있을 경우
 		if(auth.value() == Role.ADMIN) {
 			//로그인 사용자가 관리자 권한을 가지고 있는지 검사
-			boolean isAdmin = false;
+			boolean isAdmin = false; 
 			if(isAdmin) {
 				return true;
 			}else {
