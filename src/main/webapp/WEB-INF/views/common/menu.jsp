@@ -12,7 +12,7 @@
       <h6 class="text-white">
          <span class="mr-2">ch02.</span>
          <a class="text-white" href="${pageContext.request.contextPath}/ch02/content">요청(처리)메소드와 다양한 응답</a>
-      </h6>
+      </h6> 
    </li>      
 </ul>
  
