@@ -22,8 +22,8 @@ public class Ch06Controller {
    }
    
    @GetMapping("/forward")
-   public String forward(HttpServletRequest request ) {
-      request.setAttribute("loginStatus", true);
+   public String forward(HttpServletRequest request) {//객체를 요청할때 request에 저장하겠다.
+      request.setAttribute("loginStatus", true); //로그인status 에 true를 담아준다.
       request.setAttribute("userName", "홍길동");
       return "ch06/forward1";
    }
@@ -33,7 +33,7 @@ public class Ch06Controller {
       String userName = "홍길동";
       userName = URLEncoder.encode(userName,"UTF-8"); //한글로
 
-      session.setAttribute("userId", "summer");
+      session.setAttribute("userId", "summer"); //summer를 userId에 담는다.
       
       return "redirect:/ch06/getValue?userName="+userName;//이런 get방식으로 전달해줄수도 있다
    }

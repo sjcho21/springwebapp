@@ -13,6 +13,7 @@
 		<config>src/main/resources/spring/dispatcher/ch01-view-resolver.xml</config>
 		<config>src/main/resources/spring/dispatcher/ch01-static-resource.xml</config>
 		<config>src/main/resources/spring/dispatcher/ch02-ch08-interceptor.xml</config>
+		<config>src/main/resources/spring/dispatcher/ch09-multipart-resolver.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/resources/spring/dispatcher/ch02-error-message.xml</config>

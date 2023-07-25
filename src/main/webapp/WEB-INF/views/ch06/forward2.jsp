@@ -9,8 +9,8 @@
 <div class="card m-2">
    <div class="card-header">forward2</div>
    <div class="card-body">
-      <p><%=request.getAttribute("userName") %></p>
-      <p>${userName}</p> <!-- 위와 동일한 코드 -->
+      <p><%=request.getAttribute("userName") %></p> <!-- 홍길동 출력 -->
+      <p>${userName}</p> <!-- 위와 동일한 코드 -->	<!-- 홍길동 출력 -->
    
    </div>
 </div>

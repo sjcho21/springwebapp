@@ -63,7 +63,7 @@ public class ch04Controller {
 		   return "ch04/content"; //리턴을 하게되면 밑에 코드는 사용하지 않게 된다. (에러가 발생할 경우)
 	   }
 	 //요청 처리 코드 (오류를 내지 않으면 밑에 코드가 실행 되면서 홈으로 가게 된다)
-	   log.info("param1: "+form3.getParam1());
+	   log.info("param1: "+form3.getMid());
 	   log.info("param2: "+form3.getParam2());
 	   log.info("param3: "+form3.getParam3());
 	   log.info("param4: "+form3.getParam4());

@@ -35,11 +35,11 @@ public class ch03Controller {
 		   @RequestParam(defaultValue="0.0") double param3, //값이 넘어오지 않을 경우를 대비하여 default value 를 주어야 한다
 		   @RequestParam(defaultValue="false") boolean param4, 
 		   @DateTimeFormat(pattern="yyyy-MM-dd") Date param5) /*넘어온 문자열을 날짜로 변환*/ {
-	   log.info("param1: " + param1);
-	   log.info("param2: " + param2);
-	   log.info("param3: " + param3);
-	   log.info("param4: " + param4);
-	   log.info("param5: " + param5);
+	   log.error("param1: " + param1);
+	   log.error("param2: " + param2);
+	   log.error("param3: " + param3);
+	   log.error("param4: " + param4);
+	   log.error("param5: " + param5);
 	   return "redirect:/ch03/content";
    }
    
@@ -51,11 +51,11 @@ public class ch03Controller {
 		   @RequestParam(defaultValue="0.0") double param3, //값이 넘어오지 않을 경우를 대비하여 default value 를 주어야 한다
 		   @RequestParam(defaultValue="false") boolean param4, 
 		   @DateTimeFormat(pattern="yyyy-MM-dd") Date param5) /*넘어온 문자열을 날짜로 변환*/ {
-	   log.info("등록한 회원의 이름: " + name);
-	   log.info("arg2: " + arg2);
-	   log.info("param3: " + param3);
-	   log.info("param4: " + param4);
-	   log.info("param5: " + param5);
+	   log.error("등록한 회원의 이름: " + name);
+	   log.error("arg2: " + arg2);
+	   log.error("param3: " + param3);
+	   log.error("param4: " + param4);
+	   log.error("param5: " + param5);
 	   return "redirect:/ch03/content";
    }
    
@@ -66,21 +66,21 @@ public class ch03Controller {
 		   @RequestParam(defaultValue="0.0") double param3,
 		   @RequestParam(defaultValue="false") boolean param4, 
 		   @DateTimeFormat(pattern="yyyy-MM-dd") Date param5) /*넘어온 문자열을 날짜로 변환*/ {
-	   log.info("param1: " + param1);
-	   log.info("parma2: " + param2);
-	   log.info("param3: " + param3);
-	   log.info("param4: " + param4);
-	   log.info("param5: " + param5);
+	   log.error("param1: " + param1);
+	   log.error("parma2: " + param2);
+	   log.error("param3: " + param3);
+	   log.error("param4: " + param4);
+	   log.error("param5: " + param5);
 	   return "redirect:/ch03/content";
    }
    
    @RequestMapping("/method4")
    public void method4(Ch03Dto dto, HttpServletResponse response) throws Exception { //객체로 받을수 있다.
-	   log.info("param1: " + dto.getParam1());
-	   log.info("parma2: " + dto.getParam2());
-	   log.info("param3: " + dto.getParam3());
-	   log.info("param4: " + dto.isParam4()); //boolean은 is로 시작
-	   log.info("param5: " + dto.getParam5());
+	   log.error("param1: " + dto.getParam1());
+	   log.error("parma2: " + dto.getParam2());
+	   log.error("param3: " + dto.getParam3());
+	   log.error("param4: " + dto.isParam4()); //boolean은 is로 시작
+	   log.error("param5: " + dto.getParam5());
 	 
 	   JSONObject root = new JSONObject();//제이슨 객체를 만든후
 	   root.put("result", "success");//result, success 라는 제이슨 데이터를 넣어준다.
@@ -95,11 +95,11 @@ public class ch03Controller {
    
    @RequestMapping("/method5")
    public void method5(@RequestBody Ch03Dto dto, HttpServletResponse response) throws Exception { //객체로 받을수 있다.
-	   log.info("param1: " + dto.getParam1());
-	   log.info("parma2: " + dto.getParam2());
-	   log.info("param3: " + dto.getParam3());
-	   log.info("param4: " + dto.isParam4()); //boolean은 is로 시작
-	   log.info("param5: " + dto.getParam5());
+	   log.error("param1: " + dto.getParam1());
+	   log.error("parma2: " + dto.getParam2());
+	   log.error("param3: " + dto.getParam3());
+	   log.error("param4: " + dto.isParam4()); //boolean은 is로 시작
+	   log.error("param5: " + dto.getParam5());
 	 
 	   JSONObject root = new JSONObject();
 	   root.put("result", "success");
