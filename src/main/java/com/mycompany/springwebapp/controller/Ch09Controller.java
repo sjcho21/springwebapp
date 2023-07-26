@@ -85,8 +85,8 @@ public class Ch09Controller {
       fileUpload.getAttach().transferTo(file);
       
       JSONObject jsonObject = new JSONObject();
-      jsonObject.put("result", "success");
-      jsonObject.put("saveFilename", saveFilename);
+      jsonObject.put("result", "success");//{result: success }
+      jsonObject.put("saveFilename", saveFilename); //{saveFilename: saveFilename }
       String json = jsonObject.toString();
       
       return json;

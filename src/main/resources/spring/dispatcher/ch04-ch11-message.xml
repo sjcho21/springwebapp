@@ -9,8 +9,13 @@
 
 	<!-- id 속성값을 반드시 작성(이름으로 객체를 찾음) -->
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="message.ch04_error">
-		</property> <!-- 메세지 밑에 이 파일들을 해석을 해주고 코드에서  -->
+		<property name="basenames">
+			<list>
+				<value>message.ch04_error</value>
+				<value>message.ch11_internationalization</value>
+			</list>
+		</property>
+		 <!-- 메세지 밑에 이 파일들을 해석을 해주고 코드에서  -->
 	</bean>
 
 </beans>

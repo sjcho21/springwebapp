@@ -57,11 +57,11 @@
                		if(data.result ==="success"){
                         window.alert("파일전송이 성공됨");
                      }
-                     saveFilename = data.saveFilename;
+                     saveFilename = data.saveFilename; 
                      //1)파일 다운로드
-                     $("#link1").attr("href", "filedownload?saveFilename=" + saveFilename) //link
+                     $("#link1").attr("href", "filedownload?saveFilename=" + saveFilename) //link의 href 위치에 이 주소값을 뿌려준다.
                      //2)올린 파일을 바로보기
-                     $("#img1").attr("src", "filedownload?saveFilename=" + saveFilename)
+                     $("#img1").attr("src", "filedownload?saveFilename=" + saveFilename) //img1에 src를 뿌려준다.
                	  }
                });
             }
