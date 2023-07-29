@@ -16,6 +16,7 @@
 		<config>src/main/resources/spring/dispatcher/ch09-multipart-resolver.xml</config>
 		<config>src/main/resources/spring/dispatcher/ch04-ch11-message.xml</config>
 		<config>src/main/resources/spring/root/ch12-create-bean-dl.xml</config>
+		<config>src/main/resources/spring/root/ch13-mybatis.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

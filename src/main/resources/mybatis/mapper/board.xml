@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycompany.springwebapp.dao.Ch13BoardDao"> <!-- 단순한 이름 설정 -->
+   <insert id="insert" parameterType="Board"> <!--이걸 실행할때 이 객체를 받겟다  -->
+      <selectKey keyProperty="bno" resultType="int" order="BEFORE"> <!-- insert 할때는 보드 객체에 bno가 없다,insert를 실해하기 전에 다음 bno를 얻는다. -->
+      		select seq_bno.nextval from dual   
+      </selectKey>
+      insert into board (bno, btitle, bcontent, mid, bdate, bhitcount)
+      values(#{bno}, #{btitle}, #{bcontent}, #{mid}, sysdate, 0) <!-- getter를 호출해서 넣어준다. -->
+   </insert>
+   
+  <select id="selectByPage" parameterType="Pager" resultType="board">
+	  <![CDATA[
+	  select rnum, bno, btitle, mid, bdate, bhitcount, battachoname
+	      from (
+	         select rownum as rnum, bno, btitle, mid, bdate, bhitcount, battachoname
+	         from (
+	            select bno, btitle, mid, bdate, bhitcount, battachoname
+	            from board
+	            order by bno desc
+	         )
+	         where rownum <= #{endRowNo}
+	      )
+	      where rnum >= #{startRowNo}
+	      ]]>
+   </select>
+    
+    <select id="count" resultType="int"> <!-- 아이디 하고 메소드 이름하고 똑같아야 한다. -->
+    	select count(*) from board
+    </select>
+   <select id="selectByBno" parameterType="int" resultType="Board"> <!-- 주는 거 이므로 resultType -->
+      select bno, btitle, bcontent, mid, bdate, bhitcount, battachoname, battachsname, battachtype, battachdata
+      from board
+      where bno=#{bno}
+   </select>
+   
+   
+   <update id="updateByBno" parameterType="Board"> <!-- 주는게 있어야 업데이트 되는게 있으므로 parameter -->
+   		update board set btitle=#{btitle}, bcontent=#{bcontent}
+   		where bno=#{bno}
+   </update>
+   
+   <delete id="deleteByBno" parameterType="int">
+   		delete from board where bno=#{bno}
+   		 
+   </delete>
+</mapper>

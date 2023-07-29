@@ -17,6 +17,14 @@
     <Logger name="com.mycompany.springwebapp" level="info" additivity="false"><!-- info 일때 : info, error, warn 만 출력됨 -->
       <AppenderRef ref="Out"/>
     </Logger>
+    <!-- WebApplication 이 DB로 보내는 SQL문을 로그로 출력하기 위한 설정 -->
+     <Logger name="jdbc.sqlonly" level="info" additivity="false"><!-- info 일때 : info, error, warn 만 출력됨 -->
+      <AppenderRef ref="Out"/>
+    </Logger>
+     <!-- DB가 보내는 결과를 로그로 출력하기 위한 설정 --> <!-- info 일때 : info, error, warn 만 출력됨 -->
+   <!--  <Logger name="jdbc.resultset" level="info" additivity="false">
+      <AppenderRef ref="Out"/>
+    </Logger>-->
     <Root level="error">
       <AppenderRef ref="Out"/>
     </Root>
