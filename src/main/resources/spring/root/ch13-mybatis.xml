@@ -28,6 +28,7 @@
    	생략되면 base-package에 있는 모든 하위 인터페이스를 매퍼로 등록하고, 구현 객체를 자동으로 생성해서 스프링 관리 빈으로 생성
    -->
     <mybatis-spring:scan 
-    base-package="com.mycompany.springwebapp.dao"
+    base-package="com.mycompany.springwebapp.dao" 
 	annotation = "org.apache.ibatis.annotations.Mapper"/>  <!-- mapper 어노테이션이 붙어있는 인터페이스 하고만 연동하여러 -->
+	<!-- 어노테이션이 붙지 않으면 xml하고 연동 -->
 </beans>
